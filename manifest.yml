@@ -1,0 +1,9 @@
+---
+applications:
+- name: Kharcha-pdf
+  random-route: true
+  path: ./
+  memory: 2048M
+  buildpacks: 
+  - python_buildpack
+  command: python server.py

@@ -1,0 +1,4 @@
+Flask==2.3.*
+xhtml2pdf==0.2.16
+pytz==2024.1 
+flask_cors==4.0.1

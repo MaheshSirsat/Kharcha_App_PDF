@@ -1,0 +1,86 @@
+GET http://127.0.0.1:4004/generatePDF
+Content-Type: application/json
+###
+POST http://127.0.0.1:4004/generatePDF
+Content-Type: application/json
+
+{
+  "monthData": [
+    {
+      "createdAt": "2024-11-05T08:48:01.465Z",
+      "createdBy": "anonymous",
+      "credit_Balance": 1000,
+      "modifiedAt": "2024-11-09T13:49:38.136Z",
+      "modifiedBy": "anonymous",
+      "month_name": "Feb",
+      "previous_Balance": 10,
+      "total_Balance": 1010,
+      "year": "2024",
+      "to_Items": [
+        {
+          "ID": "84a69620-a4d8-4527-812a-0cc87254e90b",
+          "amount": 100,
+          "createdAt": "2024-11-09T13:49:38.136Z",
+          "createdBy": "anonymous",
+          "modifiedAt": "2024-11-09T13:49:38.136Z",
+          "modifiedBy": "anonymous",
+          "name": "Stock",
+          "remarks": "1",
+          "to_Category_name": "Saving",
+          "to_Month_month_name": "Feb",
+          "to_Month_year": "2024"
+        },
+        {
+          "ID": "af681ebb-bd01-4718-b39e-eafd0372f1b2",
+          "amount": 2,
+          "createdAt": "2024-11-09T13:49:38.136Z",
+          "createdBy": "anonymous",
+          "modifiedAt": "2024-11-09T13:49:38.136Z",
+          "modifiedBy": "anonymous",
+          "name": "PPiza",
+          "remarks": "2",
+          "to_Category_name": "Food",
+          "to_Month_month_name": "Feb",
+          "to_Month_year": "2024"
+        },
+        {
+          "ID": "5b7885c9-4dd5-48e2-9789-2eddee0e2e34",
+          "amount": 100,
+          "createdAt": "2024-11-09T13:49:38.136Z",
+          "createdBy": "anonymous",
+          "modifiedAt": "2024-11-09T13:49:38.136Z",
+          "modifiedBy": "anonymous",
+          "name": "Stock2",
+          "remarks": "3",
+          "to_Category_name": "Saving",
+          "to_Month_month_name": "Feb",
+          "to_Month_year": "2024"
+        },
+        {
+          "ID": "3ee9ae2f-6e86-4dd0-897e-16e7439077ab",
+          "amount": 2,
+          "createdAt": "2024-11-09T13:49:38.136Z",
+          "createdBy": "anonymous",
+          "modifiedAt": "2024-11-09T13:49:38.136Z",
+          "modifiedBy": "anonymous",
+          "name": "PPiza2",
+          "remarks": "5",
+          "to_Category_name": "Food",
+          "to_Month_month_name": "Feb",
+          "to_Month_year": "2024"
+        }
+      ]
+    }
+  ],
+  "categoryData": [
+    {
+      "category": "Saving",
+      "total_amount": 200
+    },
+    {
+      "category": "Food",
+      "total_amount": 4
+    }
+  ],
+  "grandTotal": 204
+}

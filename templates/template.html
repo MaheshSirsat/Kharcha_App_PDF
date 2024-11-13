@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @page {
+            @frame content_frame {
+                left: 20pt;
+                right: 20pt;
+                top: 20pt;
+                height: 793pt;
+                -pdf-frame-border: 1;
+            }
+        }
+        h1{
+            text-align: center;
+            padding: 20px; 
+            font-size: 20px; 
+        }
+        /* Page style */
+        body {
+            
+            font-family: Arial, sans-serif;
+      
+        }
+
+        /* Table styling for the first table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; 
+            font-size: 15px;
+        }
+        th {
+            padding: 12px;
+            border: 1px solid #000000;
+        }
+        /* Row and cell styling for the first table */
+        td {
+            padding: 12px;
+            border: 1px solid #000000;
+        }
+
+        /* First column background color for the first table */
+        table:first-of-type td:first-child {
+            background-color: #049c7c;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* For alternating row color in the first table */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Styling for the second and third tables */
+        .expense-table,
+        .item-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        /* Header styling for the second and third tables */
+        .expense-table th,
+        .item-table th {
+            background-color: #049c7c;
+            color: #fff;
+            padding: 12px;
+        }
+
+        /* Row and cell styling for the second and third tables */
+        .expense-table td,
+        .item-table td {
+            padding: 12px;
+            border: 1px solid #000000;
+        }
+
+        /* Alternating row colors for the second and third tables */
+        .expense-table tr:nth-child(even),
+        .item-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <h1>PDF CREATED {{pdfData}}</h1> -->
+    <h1> Kharcha Summary </h1>
+    <!-- First Table: Original table with Month Name, Year, etc. -->
+    <table>
+        <tr>
+            <td>Month Name</td>
+            <td>{{pdfData.monthData[0].month_name}}</td>
+        </tr>
+        <tr>
+            <td>Year</td>
+            <td>{{pdfData.monthData[0].year}}</td>
+        </tr>
+        <tr>
+            <td>Previous Balance</td>
+            <td>{{pdfData.monthData[0].previous_Balance}} /- INR</td>
+        </tr>
+        <tr>
+            <td>Current Balance</td>
+            <td>{{pdfData.monthData[0].credit_Balance}} /- INR</td>
+        </tr>
+        <tr>
+            <td>Total Balance</td>
+            <td>{{pdfData.monthData[0].total_Balance}} /- INR</td>
+        </tr>
+    </table>
+
+    <h1>Category wise Data</h1>
+    <!-- Second Table: Category and Total Expense -->
+    <table repeat="1" class="expense-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Total Expense</th>
+            </tr>
+        </thead>
+        {%for Category in pdfData.categoryData%}
+        <tr>
+            <td>{{Category.category}}</td>
+            <td> {{Category.total_amount}} /- INR</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+    <h1>Items wise Data</h1>
+    <!-- Third Table: Item, Remark, Amount, Category Type -->
+    <table repeat="1" class="item-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Remark</th>
+                <th>Amount</th>
+                <th>Category Type</th>
+            </tr>
+        </thead>
+        {%for item in pdfData.monthData[0].to_Items%}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.remarks}}</td>
+            <td>{{item.amount}} /- INR</td>
+            <td>{{item.to_Category_name}}</td>
+            
+        </tr>
+        {%endfor%}
+        
+    </table>
+</body>
+</html>
